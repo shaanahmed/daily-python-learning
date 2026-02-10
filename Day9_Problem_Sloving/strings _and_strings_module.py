@@ -62,15 +62,16 @@ Hint: Iterate through the password string and use the in membership operator to 
 
 import string
 
+
 def check_password(password):
-    # Initialize flags for our criteria
+    # Initialize flags for my criteria
     has_digit = False
     has_punctuation = False
     has_letter = False
 
-    # Iterate through the password character by character
+    # Iterating through the password character by character
     for char in password:
-        # Check if character belongs to specific string module groups
+        # Checking if character belongs to specific string module groups
         if char in string.digits:
             has_digit = True
         elif char in string.punctuation:
@@ -84,7 +85,7 @@ def check_password(password):
     else:
         return "Weak Password: Must include letters, digits, and punctuation."
 
-# Test it out
+# Testing my password
 user_pass = input("Enter a password to test: ")
 print(check_password(user_pass))
 
