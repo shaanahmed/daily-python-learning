@@ -197,4 +197,47 @@ for i in range(1, rows + 1):
             print(' ', end='')
     print()
 
-# %% 
+# %% Star using star Pattern
+
+import math
+
+def main():
+    # q is tan(72°), w is tan(36°)
+    q = math.tan(math.pi * 0.4)
+    w = math.tan(math.pi * 0.2)
+
+    try:
+        # Ask for input and convert it to a float
+        n = float(input("Enter the size (try 15 for a good result):\n"))
+    except ValueError:
+        print("Please enter a valid number.")
+        return
+
+    # Calculate the vertical (j) and horizontal (i) bounds
+    height = math.ceil(n * q)
+    width = math.ceil(0.55 * n * q / w - n)
+
+    # j loops from top to bottom
+    for j in range(height, -1, -1):
+        
+        # i loops from left to right. Added + 1 to fix the missing right edge!
+        for i in range(-width, width + 1):
+            
+            # The three mathematical regions that draw the star
+            arms      = (j <= 0.55 * n * q) and (j >= (i + n) * w) and (j >= (n - i) * w)
+            left_leg  = (j >= (i + n) * w) and (j <= (i + n) * q) and (j <= (n - i) * q)
+            right_leg = (j <= (n - i) * q) and (j >= (n - i) * w) and (j <= (i + n) * q)
+            
+            if arms or left_leg or right_leg:
+                print("*", end="")
+            else:
+                print(" ", end="")
+        
+        # Move to the next line after finishing a row
+        print()
+
+if __name__ == "__main__":
+    main()
+
+
+# %%
