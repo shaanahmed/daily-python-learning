@@ -115,4 +115,67 @@ weekly_tasks = {"Monday": ["Gym"]}
 weekly_tasks.setdefault("Tuesday", []).append("Coding")
 print(weekly_tasks)
 
+# %% 🐉 The "Data Architect" Challenge: The Employee Analytics
+"""
+You are given a complex dataset representing departments in a tech company. Your mission is to transform this messy data into a clean report.
+
+The Dataset:
+
+Python
+company_data = {
+    "Engineering": {
+        "teams": [
+            {"team_name": "Cloud", "members": [{"name": "Alice", "score": 90}, {"name": "Bob", "score": 85}]},
+            {"team_name": "AI", "members": [{"name": "Charlie", "score": 95}, {"name": "David", "score": 80}]}
+        ]
+    },
+    "Marketing": {
+        "teams": [
+            {"team_name": "SEO", "members": [{"name": "Eve", "score": 92}]},
+            {"team_name": "Social", "members": [{"name": "Frank", "score": 88}]}
+        ]
+    }
+}
+Your Task:
+Create a new dictionary called performance_report. This dictionary should map each team_name to the average score of its members.
+
+Expected Output:
+{'Cloud': 87.5, 'AI': 87.5, 'SEO': 92.0, 'Social': 88.0}
+"""
+
+company_data = {
+    "Engineering": {
+        "teams": [
+            {"team_name": "Cloud", "members": [{"name": "Alice", "score": 90}, {"name": "Bob", "score": 85}]},
+            {"team_name": "AI", "members": [{"name": "Charlie", "score": 95}, {"name": "David", "score": 80}]}
+        ]
+    },
+    "Marketing": {
+        "teams": [
+            {"team_name": "SEO", "members": [{"name": "Eve", "score": 92}]},
+            {"team_name": "Social", "members": [{"name": "Frank", "score": 88}]}
+        ]
+    }
+}
+
+performance_report = {}
+
+for dept_name, dept_info in company_data.items():
+    # dept_info is {'teams': [...]}
+    for team in dept_info["teams"]:
+        # team is {'team_name': 'Cloud', 'members': [...]}
+        t_name = team["team_name"]
+        
+        # Pulling the scores out of the members list
+        scores = [m["score"] for m in team["members"]]
+        
+        # Calculating average
+        avg = sum(scores) / len(scores)
+        
+        # Adding to our new dictionary
+        performance_report[t_name] = avg
+
+print(performance_report)
+
+
 # %%
