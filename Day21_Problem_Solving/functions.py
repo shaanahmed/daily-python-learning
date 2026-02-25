@@ -117,4 +117,50 @@ def find_peaks(data):
 print(f"Peaks in [1, 3, 2, 8, 5]: {find_peaks([1, 3, 2, 8, 5])}") 
 
 print(f"Peaks in [10, 2, 1, 5, 4]: {find_peaks([10, 2, 1, 5, 4])}") 
+# %% The Problem: The "Inventory Auditor"
+"""
+You are building a system for a grocery store. You receive a list of "transaction" dictionaries, but the data is messy. Some items are repeated, and some have negative values (returns).
+
+The Requirements
+Function Name: audit_inventory
+
+Input: A list of dictionaries, where each dictionary has a name (string) and a quantity (integer).
+
+Output: A single dictionary containing the total count for each item.
+
+Special Rules:
+
+If an item's final total is zero or less, it should be removed from the final dictionary.
+
+The item names should be treated as case-insensitive (e.g., "Apple" and "apple" are the same item).
+"""
+
+def audit_inventory(transactions):
+    totals = {}
+
+    for item in transactions:
+        # Standardize the name to lowercase for case-insensitivity
+        name = item['name'].lower()
+        quantity = item['quantity']
+        
+        # Add the quantity to the existing total, or start at 0 if new
+        totals[name] = totals.get(name, 0) + quantity
+
+    # Create a new dictionary excluding items with 0 or fewer counts
+    # This is called a Dictionary Comprehension
+    final_inventory = {k: v for k, v in totals.items() if v > 0}
+    
+    return final_inventory
+
+# Test Case
+stock_updates = [
+    {"name": "Apple", "quantity": 10},
+    {"name": "banana", "quantity": 5},
+    {"name": "APPLE", "quantity": -3},
+    {"name": "pear", "quantity": 2},
+    {"name": "banana", "quantity": -5}
+]
+
+print(audit_inventory(stock_updates))
+
 # %%
