@@ -60,10 +60,61 @@ def is_palindrome(word):
     
     return clean_word == reversed_word
 
+
 # Testing the function
 test_word = "Racecar"
 if is_palindrome(test_word):
     print(f"Yes, '{test_word}' is a palindrome!")
 else:
     print(f"No, '{test_word}' is not a palindrome.")
+# %% The Problem: The "Unique Peak" Finder
+"""
+You are tasked with writing a function that analyzes a list of integers. A peak is defined as an element that is strictly greater than its immediate neighbors.
+
+The Requirements
+Function Name: find_peaks
+
+Input: A list of integers.
+
+Output: A list of all peak values.
+
+Special Rules:
+
+The first and last elements can be peaks if they are greater than their only neighbor.
+
+If the list has fewer than two elements, return an empty list.
+
+The function should handle duplicate peaks (e.g., if 7 is a peak twice, it should appear twice in the output).
+"""
+
+def find_peaks(data):
+    # Handle the edge case for short lists
+    if len(data) < 2:
+        return []
+
+    peaks = []
+    n = len(data)
+
+    for i in range(n):
+        # Check first element
+        if i == 0:
+            if data[i] > data[i + 1]:
+                peaks.append(data[i])
+        
+        # Check last element
+        elif i == n - 1:
+            if data[i] > data[i - 1]:
+                peaks.append(data[i])
+        
+        # Check middle elements
+        else:
+            if data[i] > data[i - 1] and data[i] > data[i + 1]:
+                peaks.append(data[i])
+                
+    return peaks
+
+# Test cases
+print(f"Peaks in [1, 3, 2, 8, 5]: {find_peaks([1, 3, 2, 8, 5])}") 
+
+print(f"Peaks in [10, 2, 1, 5, 4]: {find_peaks([10, 2, 1, 5, 4])}") 
 # %%
