@@ -88,7 +88,6 @@ The function should handle duplicate peaks (e.g., if 7 is a peak twice, it shoul
 """
 
 def find_peaks(data):
-    # Handle the edge case for short lists
     if len(data) < 2:
         return []
 
@@ -96,17 +95,13 @@ def find_peaks(data):
     n = len(data)
 
     for i in range(n):
-        # Check first element
         if i == 0:
             if data[i] > data[i + 1]:
                 peaks.append(data[i])
         
-        # Check last element
         elif i == n - 1:
             if data[i] > data[i - 1]:
                 peaks.append(data[i])
-        
-        # Check middle elements
         else:
             if data[i] > data[i - 1] and data[i] > data[i + 1]:
                 peaks.append(data[i])
@@ -139,20 +134,15 @@ def audit_inventory(transactions):
     totals = {}
 
     for item in transactions:
-        # Standardize the name to lowercase for case-insensitivity
         name = item['name'].lower()
         quantity = item['quantity']
         
-        # Add the quantity to the existing total, or start at 0 if new
         totals[name] = totals.get(name, 0) + quantity
 
-    # Create a new dictionary excluding items with 0 or fewer counts
-    # This is called a Dictionary Comprehension
     final_inventory = {k: v for k, v in totals.items() if v > 0}
     
     return final_inventory
 
-# Test Case
 stock_updates = [
     {"name": "Apple", "quantity": 10},
     {"name": "banana", "quantity": 5},
