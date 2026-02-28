@@ -153,4 +153,41 @@ stock_updates = [
 
 print(audit_inventory(stock_updates))
 
-# %%
+# %% The Problem: The "Run-Length Encoder
+"""
+In data compression, Run-Length Encoding (RLE) is a simple way to represent repeated data. For example, instead of writing "AAAABBBCC", you would write "4A3B2C".
+
+The Requirements
+Function Name: compress_string
+
+Input: A single string of characters (e.g., "AAABBC")
+
+Output: A compressed string representing the counts (e.g., "3A2B1C")
+
+Special Rules:
+
+If the input string is empty, return an empty string.
+
+The function should be case-sensitive ("a" and "A" are different).
+"""
+
+def compress_string(text):
+    if not text:
+        return ""
+
+    compressed = []
+    count = 1
+    
+    for i in range(1, len(text)):
+        if text[i] == text[i - 1]:
+            count += 1
+        else:
+            compressed.append(str(count) + text[i - 1])
+            count = 1
+    compressed.append(str(count) + text[-1])
+    
+    return "".join(compressed)
+
+print(compress_string("AAABBC"))   # Expected: "3A2B1C"
+print(compress_string("GGGGoooo")) # Expected: "4G4o"
+print(compress_string("abc"))      # Expected: "1a1b1c"
