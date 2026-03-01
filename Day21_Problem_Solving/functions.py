@@ -188,6 +188,48 @@ def compress_string(text):
     
     return "".join(compressed)
 
-print(compress_string("AAABBC"))   # Expected: "3A2B1C"
-print(compress_string("GGGGoooo")) # Expected: "4G4o"
-print(compress_string("abc"))      # Expected: "1a1b1c"
+print(compress_string("AAABBC")) 
+print(compress_string("GGGGoooo"))
+print(compress_string("abc"))     
+
+
+# %% The Problem: The "Heatmap Filter"
+"""
+Imagine you have a 2D grid (a list of lists) representing temperatures in a room. You need to "sanitize" this data by identifying any coordinate that exceeds a certain threshold.
+
+The Requirements
+Function Name: find_hot_spots
+
+Input: * grid: A list of lists of integers (e.g., [[20, 25], [30, 15]]).
+
+threshold: An integer.
+
+Output: A list of tuples, where each tuple is the (row, column) index of a "hot spot."
+
+Special Rules:
+
+If no spots exceed the threshold, return an empty list.
+
+The output should be ordered by row, then by column.
+"""
+
+def find_hot_spots(grid, threshold):
+    hot_spots = []
+    
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            if grid[i][j] > threshold:
+                hot_spots.append((i, j))
+                
+    return hot_spots
+
+room_temp = [
+    [22, 25, 19],
+    [30, 24, 21],
+    [18, 29, 20]
+]
+
+print(find_hot_spots(room_temp, 24))
+
+
+# %%
