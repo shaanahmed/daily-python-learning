@@ -49,4 +49,41 @@ company.add_employee("Luke","System Designer")
 for emp in company.list_employees():
     print(emp)
 
+
+# %% The Problem: The "User Registration" System
+"""
+The Requirements
+Outer Class User:
+Constructor takes username and email.
+Inside the constructor, it should create an instance of the nested Profile class.
+It should have a method show_info() that prints the username, email, and the details from the nested profile.
+
+Nested Class Profile:
+Defined inside the User class.
+Constructor takes city and zip_code.
+
+It should have a method get_address() that returns a string like "City: Jorhat, Zip: 785001".
+"""
+class User:
+    def __init__(self, username, email, city, zip_code):
+        self.username = username
+        self.email = email
+        self.profile = self.Profile(city, zip_code)  # Instantiated the nested Profile class here
+
+    def show_info(self):
+        print(f"{self.username} ({self.email})")
+        print(f"{self.profile.get_address()}")  #Calling the nested class method 
+
+    class Profile:
+        def __init__(self, city, zip_code):
+            self.city = city
+            self.zip_code = zip_code
+
+        def get_address(self):
+            return f"Person lives in {self.city} ({self.zip_code})"
+
+new_user = User("shaan_ahmed", "shaanahmedsd@gmail.com", "Jorhat", "785001")
+new_user.show_info()
+    
+
 # %%
