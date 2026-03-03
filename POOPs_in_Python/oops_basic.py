@@ -20,4 +20,7 @@ print(80*"_")
 print(Ferrari.total_collection())
 
 
+
+
+
 # %%
