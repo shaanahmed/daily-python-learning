@@ -79,4 +79,59 @@ else:
 # os.getcwd() is the "get current working directory"
 
 
+
+# %% Ignore Demo Random file to manipulate
+
+with open("demo.txt","w") as f:
+    f.write("zgzgzgzgzg.\n")
+    f.write("And I am learning python.\n")
+    f.write("Today Idnasdkchiwdcv andling.     ")
+
+with open("test.txt", "r") as f:
+    content = f.read()
+    print(content)
+
+# %% Ignore Demo Random file to manipulate
+
+with open("todel.txt","w") as f:
+    f.write("zgzgzgzgzg.\n")
+    f.write("And I am learning python.\n")
+    f.write("Today Idnasdkchiwdcv andling.     ")
+
+with open("test.txt", "r") as f:
+    content = f.read()
+    print(content)
+
+
+
+# %% Deleting a file
+
+from pathlib import Path
+
+file_to_delete = Path("demo.txt")
+
+# 2. ALWAYS check if it exists first to avoid a crash
+if file_to_delete.exists():
+    file_to_delete.unlink() # 'unlink' is the technical term for deleting a file
+    print("File deleted successfully!")
+else:
+    print("File not found, nothing to delete.")
+
+# %% Safety Net (Handling Errors)
+
+from pathlib import Path
+
+file_path = Path("todel.txt")
+
+try:
+    file_path.unlink()
+    print("Target neutralized.")
+except FileNotFoundError:
+    print("File was already gone!")
+except PermissionError:
+    print("Error: The file is open in another program. Close it first!")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
+
 # %%
