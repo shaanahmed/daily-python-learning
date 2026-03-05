@@ -37,8 +37,8 @@ logging.basicConfig(
     level = logging.ERROR,
     # Added force=True so it actually updates your settings!
     force = True,
-    format = '%(asctime)s | %(levelname)s | %(funcName)s:%(lineno)d | %(message)s'
-)
+    format = '%(asctime)s | %(levelname)s | %(funcName)s:%(lineno)d | %(message)s'   
+)  #StackTrace(Where it tells the exact line with Track error and giving the whole line)
 
 try:
     x = 10 / 0
