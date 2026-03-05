@@ -66,4 +66,17 @@ else:
     print("File not found! Check the folder names.")
 
 
+# %% Pro way to find if file exists
+
+import os
+
+path = "test2.txt"
+
+if os.path.exists(path):
+    print("Found it! Opening now...")
+else:
+    print(f"Error: I looked in {os.getcwd()} but {path} isn't there.")
+# os.getcwd() is the "get current working directory"
+
+
 # %%
