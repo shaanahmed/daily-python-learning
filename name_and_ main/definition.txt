@@ -1,0 +1,12 @@
+The Secret "ID Card"
+Think of __name__ as a variable that Python automatically creates for every file you run. 
+It’s like an ID card.
+
+When you run a file directly: Python gives it the ID "__main__".
+
+When a file is imported by another file: Python gives it an ID equal to its filename.
+
+tools.py and app.py is for the same demo purpose of what __name__ = __main__ does.
+
+helper.py and main.py is for the same demo purpose of what __name__ = __main__ does.
+
