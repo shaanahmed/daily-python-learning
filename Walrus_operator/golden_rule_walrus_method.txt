@@ -1,0 +1,14 @@
+The "Golden Rules" to Beat Everyone
+To truly master this and avoid "bad" code, remember these three tips:
+
+1. Parentheses are Mandatory: In almost all cases (especially if and while), 
+you must wrap the assignment in ( ).
+
+Don't Overdo It: If the walrus operator makes a line so long it’s hard to read, 
+stick to the old way. Clarity beats cleverness.
+
+2. Variable Scope: The variable you create with a walrus operator persists after the 
+block ends.
+
+3. Pro Tip: Use the Walrus Operator when you find yourself calling the same function 
+twice in an if/else block. It’s the hallmark of a senior-level Python dev.
