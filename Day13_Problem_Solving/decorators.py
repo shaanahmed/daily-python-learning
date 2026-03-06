@@ -99,4 +99,31 @@ def addition(arg1, arg2):
 
 result = addition(22, 25)
 print(result)
+
+# %%The Timer (Performance Testing)
+"""
+Ever wonder exactly how many milliseconds a function takes? 
+Don't add time.time() to every function. Use a decorator.The Timer (Performance Testing)
+Ever wonder exactly how many milliseconds a function takes? 
+Don't add time.time() to every function. Use a decorator."""
+
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        result = func(*args, **kwargs)
+        end = time.perf_counter()
+        print(f"Function {func.__name__} took {end - start:.4f}s")
+        return result
+    return wrapper
+
+@timer
+def heavy_computation():
+    time.sleep(1.5)
+    return "Done!"
+
+heavy_computation()
+
+
 # %%
