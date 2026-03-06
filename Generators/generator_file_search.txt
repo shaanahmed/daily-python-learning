@@ -1,0 +1,30 @@
+INFO: Application started successfully
+DEBUG: Loading configuration from config.yaml
+INFO: Database connection established
+ERROR: Failed to fetch user data from API endpoint /users/123
+DEBUG: Retrying connection attempt 1 of 3
+WARNING: Slow response time detected on server node-4
+ERROR: Timeout occurred while connecting to cache server
+INFO: Cache server reconnection attempted
+DEBUG: Memory usage at 74% capacity
+INFO: Scheduled job 'cleanup_temp_files' started
+ERROR: Permission denied when accessing /var/logs/archive
+WARNING: Disk space below 20% threshold on mount /data
+INFO: User session started for user_id: 9021
+DEBUG: Query executed in 340ms on table 'transactions'
+ERROR: Null pointer exception in module payment_processor.py at line 88
+INFO: Backup process initiated for database snapshot
+DEBUG: Thread pool size adjusted to 12
+WARNING: Deprecated API version called by client 10.0.0.55
+ERROR: SSL certificate validation failed for host secure.payments.io
+INFO: Email notification sent to admin@company.com
+DEBUG: Cache hit ratio: 91.3%
+INFO: New user registered with id: 4402
+ERROR: Database deadlock detected on table 'orders' during transaction
+WARNING: Rate limit threshold reached for API key ending in ...7f3a
+DEBUG: Parsing XML response from third-party service
+INFO: File upload completed: report_2024_q1.pdf
+ERROR: Out of memory error in worker process PID 3812
+DEBUG: Websocket connection opened from 192.168.1.45
+INFO: Health check passed for all services
+ERROR: Invalid credentials provided for admin login attempt from IP 203.45.67.89
