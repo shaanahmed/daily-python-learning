@@ -8,5 +8,5 @@ def fast_math(x):
 if __name__ == "__main__":
     print("Running a secret test that only happens in tools.py")
 
-    
+
 # %%
