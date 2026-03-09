@@ -1,3 +1,5 @@
+# %% generators 
+
 def count_to_infinity(start):
     """A generator that counts up forever (without crashing your PC)."""
     while True:
@@ -17,3 +19,6 @@ for num in counter:
     print(f"Looping: {num}")
     if num >= 15: 
         break
+
+    
+# %%
