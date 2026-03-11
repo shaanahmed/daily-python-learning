@@ -93,4 +93,19 @@ your variables to gather and throw away all the earlier days in the week.
 week_temps = [72, 74, 71, 75, 77, 79, 81]
 *_, friday, saturday, sunday = week_temps
 print(f"Friday: {friday:>10} \nSaturday: {saturday:>8} \nSunday: {sunday:>10} ")
+# %% Problem 6: The Secret Code
+"""
+You have a list of numbers, and you want to:
+1. 	Extract the first and last elements separately.
+2. 	Collect all the middle elements together using unpacking.
+"""
+# Example list
+numbers = [10, 20, 30, 40, 50]
+
+first, *middle, last = numbers
+
+print("First:", first)       
+print("Middle:", middle)     
+print("Last:", last)        
+
 # %%
