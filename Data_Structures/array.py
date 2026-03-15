@@ -1,4 +1,4 @@
-#
+# %%
 import array as arr
 
 # 1. Initialize an array of integers ('i' stands for signed integer)
@@ -32,3 +32,31 @@ print(search_element(numbers, 30))
 # 6. Updating (O(1) complexity)
 numbers[0] = 100
 print(f"After Update: {numbers.tolist()}")
+
+
+# %%
+import array as arr
+
+def reverse_array(data):
+    # Initialize two pointers
+    left = 0
+    right = len(data) - 1
+    
+    # Swap elements until the pointers meet in the middle
+    while left < right:
+        # Standard swap logic
+        data[left], data[right] = data[right], data[left]
+        
+        # Move pointers closer to each other
+        left += 1
+        right -= 1
+    
+    return data
+
+# Initialize an array
+my_array = arr.array('i', [1, 2, 3, 4, 5, 6])
+
+print(f"Original: {my_array.tolist()}")
+reverse_array(my_array)
+print(f"Reversed: {my_array.tolist()}")
+# %%
